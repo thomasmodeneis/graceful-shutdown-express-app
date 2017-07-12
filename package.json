@@ -1,0 +1,27 @@
+{
+  "name": "graceful-shutdown-express-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/babel-node server/index.js --presets es2015",
+    "test": "nohup npm run start &. && node_modules/.bin/mocha --compilers js:babel-register  --timeout 60000",
+    "kill": "ps -ef |grep server/index.js |awk {'print $2'} |xargs kill -15"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "es6-promisify": "^5.0.0",
+    "server-destroy": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.2",
+    "express": "^4.15.3",
+    "mocha": "^3.4.2",
+    "request": "^2.81.0",
+    "should": "^11.2.1"
+  }
+}
