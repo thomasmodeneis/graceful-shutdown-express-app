@@ -45,7 +45,6 @@ class ExpressGracefulShutdown {
   // Middleware
   middleware() {
     return (req, res, next) => {
-      this.logger.log(`Middleware -> gracefulShutdownMode:${this.gracefulShutdownMode}`);
       if (this.gracefulShutdownMode) {
         return res.sendStatus(503);
       }

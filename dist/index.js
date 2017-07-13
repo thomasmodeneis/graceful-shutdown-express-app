@@ -68,7 +68,6 @@ var ExpressGracefulShutdown = function () {
       var _this2 = this;
 
       return function (req, res, next) {
-        _this2.logger.log('Middleware -> gracefulShutdownMode:' + _this2.gracefulShutdownMode);
         if (_this2.gracefulShutdownMode) {
           return res.sendStatus(503);
         }

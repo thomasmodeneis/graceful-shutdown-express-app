@@ -14,4 +14,42 @@ Scenarios for a graceful shutdown:
     If exit gracefuly fails, app exits with process.exit(1) reporting the failure.
 ```
 
-See example folder for implementation example.
+
+Implementation example:
+
+```
+const express = require('express');
+const gracefulShutdown = require('../src/index');
+const expresshut = gracefulShutdown.Startup();
+
+const PORT = process.env.PORT || 16789;
+const app = express();
+
+app.use(expresshut.middleware());
+
+app.get('/', (req, res) => {
+  res.writeHead(200);
+  res.end('All done');
+});
+
+const httpServer = app.listen(PORT, function (err) {
+  if (err) {
+    console.log("Got error when starting", err);
+    process.exit(1);
+  }
+  console.log("App started port ", PORT)
+});
+
+expresshut.setServer(httpServer);
+```
+
+
+## Author
+Thomas Modeneis
+[StackOverflow](https://careers.stackoverflow.com/thomasmodeneis)
+[LinkedIn](https://uk.linkedin.com/in/thomasmodeneis)
+
+License
+=======
+
+This module is licensed under the MIT license.
