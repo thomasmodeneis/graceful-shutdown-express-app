@@ -1,6 +1,6 @@
 # Gracefully Shut Down Express.js with ES6
 
-This module is a easy way to setup graceful shutdown of your application.
+This module is a easy way to setup graceful shutdown of your application running with Kubernetes.
 It will help you to notify the loadbalancer with 503 and avoid having customer request failing because we stop our application.
 
 
@@ -14,6 +14,13 @@ Scenarios for a graceful shutdown:
     If exit gracefuly fails, app exits with process.exit(1) reporting the failure.
 ```
 
+# How does it work?
+This module was designed to work together with Kubernetes. 
+The graceful shutdown need to notify the Service’s load balancer during the shutdown that we wont be serving more requests, and reply back with 503. 
+We then close the server, tear down the all connections and exit gracefully.
+
+See the below UML diagram for a complete architecture view:
+![UML](https://github.com/thomasmodeneis/graceful-shutdown-express-app/raw/master/graceful-shutdown-uml.jpg)
 
 Implementation example:
 
