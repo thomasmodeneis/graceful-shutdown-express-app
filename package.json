@@ -2,14 +2,15 @@
   "name": "graceful-shutdown-express-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node_modules/.bin/babel-node server/index.js --presets es2015",
     "test": "nohup npm run start &. && node_modules/.bin/mocha --compilers js:babel-register  --timeout 60000",
-    "kill": "ps -ef |grep server/index.js |awk {'print $2'} |xargs kill -15"
+    "kill": "ps -ef |grep server/index.js |awk {'print $2'} |xargs kill -15",
+    "build": "babel src -d dist"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Thomas Modeneis",
+  "license": "MIT",
   "dependencies": {
     "es6-promisify": "^5.0.0",
     "server-destroy": "^1.0.1"

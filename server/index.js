@@ -1,5 +1,5 @@
 const express = require('express');
-const gracefulShutdown = require('../index');
+const gracefulShutdown = require('../src/index');
 const expresshut = gracefulShutdown.Startup();
 
 const PORT = process.env.PORT || 16789;
