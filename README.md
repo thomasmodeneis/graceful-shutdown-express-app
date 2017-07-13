@@ -52,9 +52,9 @@ expresshut.setServer(httpServer);
 
 
 ## Author
-Thomas Modeneis
-[StackOverflow](https://careers.stackoverflow.com/thomasmodeneis)
-[LinkedIn](https://uk.linkedin.com/in/thomasmodeneis)
+* Thomas Modeneis
+* [StackOverflow](https://careers.stackoverflow.com/thomasmodeneis)
+* [LinkedIn](https://uk.linkedin.com/in/thomasmodeneis)
 
 License
 =======
